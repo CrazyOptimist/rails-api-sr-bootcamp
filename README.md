@@ -24,3 +24,17 @@ rails new api -T --api -d postgresql
 ```
 - `-T`: do not create default test folder (Rails comes with Minitest by default, we drop it to use Rspec instead)
 - `--api`: drop template(frontend) related assets/config
+
+Install Rspec and Factory Bot
+```
+ group :development, :test do
+   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+   gem "debug", platforms: %i[ mri mingw x64_mingw ]
++  gem 'rspec-rails', '~> 5.0.0'
++  gem 'factory_bot_rails'
+ end
+```
+
+```bash
+rails generate rspec:install
+```
