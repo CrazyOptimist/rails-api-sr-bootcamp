@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  it "tests article object" do
-    # article = Article.create({title: 'Simple Article', content: 'Sample Content'})
-    article = create(:article) # == FactoryBot.create (Because we configured factory bot in rails_helper.rb)
-    expect(article.title).to eq('Sample article')
+  it 'tests that factory is valid' do
+    article = build(:article) # because build(in-memory) is faster than create which persists the sample
+    expect(article).to be_valid
+  end
+
+  it 'has an invalid title' do
+    article = build(:article, title: '')
+    expect(article).not_to be_valid
   end
 end
