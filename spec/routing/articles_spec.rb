@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe '/articles routes' do
   it 'routes to articles#index' do
-    aggregate_failures do
-      # expect(get '/articles').to route_to(controller: 'articles', action: 'index')  # this is same as following
+    aggregate_failures do  # because I want to run all the expectations instead of only until the first failure
       expect(get '/articles').to route_to('articles#index')
       expect(get '/articles?page[number]=3').to route_to('articles#index', page: { number: 3 })
     end
