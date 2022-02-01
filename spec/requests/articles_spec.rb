@@ -4,7 +4,6 @@ RSpec.describe ArticlesController do
   describe '#index' do
     it 'returns a success response' do
       get '/articles'
-      # expect(response.status).to eq(200)  # same as following
       expect(response).to have_http_status(:ok)
     end
 
@@ -16,7 +15,7 @@ RSpec.describe ArticlesController do
         data: [
           {
             id: article.id.to_s,
-            type: 'articles',
+            type: 'article',
             attributes: {
               title: article.title,
               content: article.content,
